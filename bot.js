@@ -224,15 +224,11 @@ client.on('message', function(message) {
 
     }
 
-    else if (mess.startsWith(prefix + 'leave')) {
+   else if (mess.startsWith(prefix + 'leave')) {
+		
+		 if (!message.member.voiceChannel) return message.channel.send(':no_entry: || **__يجب ان تكون في روم صوتي__**');
 
-        if (!message.member.voiceChannel) return message.channel.send(':no_entry: || **__يجب ان تكون في روم صوتي__**');
-
-            message.channel.send('`✔`').then(() => {
-
-            dispatcher.resume();
-
-        });
+       message.member.voiceChannel.leave().then(message.channel.send(':ok:'));
 
     }
 
