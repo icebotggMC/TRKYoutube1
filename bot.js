@@ -226,9 +226,14 @@ client.on('message', function(message) {
 
    else if (mess.startsWith(prefix + 'leave')) {
 		
-		 if (!message.member.voiceChannel) return message.channel.send(':no_entry: || **__يجب ان تكون في روم صوتي__**');
+		if (!message.member.voiceChannel) return message.channel.send(':no_entry: || **__يجب ان تكون في روم صوتي__**');
 
-       message.member.voiceChannel.leave().then(message.channel.send(':ok:'));
+        message.channel.send('`✔`');
+
+        var server = server = servers[message.guild.id];
+
+        if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
+
 
     }
 
