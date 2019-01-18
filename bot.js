@@ -196,6 +196,19 @@ client.on('message', function(message) {
 
     }
 
+	else if (mess.startsWith(prefix + 'replay')) {
+
+        if (!message.member.voiceChannel) return message.channel.send(':no_entry: || **__يجب ان تكون في روم صوتي__**');
+
+        message.channel.send('`✔`').then(() => {
+
+            dispatcher.replay();
+
+        });
+
+		
+    }
+	
     else if (message.content.startsWith(prefix + 'vol')) {
 
         if (!message.member.voiceChannel) return message.channel.send(':no_entry: || **__يجب ان تكون في روم صوتي__**');
